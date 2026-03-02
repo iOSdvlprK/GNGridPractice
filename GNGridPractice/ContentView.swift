@@ -8,34 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.adaptive(minimum: 60))
+    ]
+    
     var body: some View {
         VStack {
-            Grid {
-                GridRow {
-                    Text("Exercise Name")
-                        .font(.system(size: 15, weight: .semibold))
-                        .frame(maxWidth: .infinity)
-                    Text("Sets")
-                        .font(.system(size: 15, weight: .semibold))
-                    Text("Reps")
-                        .font(.system(size: 15, weight: .semibold))
-                    Text("Weight (kg)")
-                        .font(.system(size: 15, weight: .semibold))
-                }
-                Divider()
-                GridRow {
-                    Text("Bench Press")
-                        .font(.system(size: 15))
-                        .frame(maxWidth: .infinity)
-                    Text("3")
-                        .font(.system(size: 15))
-                    Text("6")
-                        .font(.system(size: 15))
-                    Text("80")
-                        .font(.system(size: 15))
-                }
+            LazyVGrid(columns: columns) {
+                Color.green
+                    .frame(height: 50)
+                Color.red
+                    .frame(height: 50)
+                Color.yellow
+                    .frame(height: 50)
+                Color.blue
+                    .frame(height: 50)
             }
-            .padding(.horizontal)
         }
     }
 }
