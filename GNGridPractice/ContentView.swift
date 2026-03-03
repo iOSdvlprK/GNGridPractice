@@ -11,20 +11,18 @@ struct ContentView: View {
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
-        GridItem(.adaptive(minimum: 60))
+        GridItem(.flexible())
     ]
     
     var body: some View {
         VStack {
-            LazyVGrid(columns: columns) {
-                Color.green
-                    .frame(height: 50)
-                Color.red
-                    .frame(height: 50)
-                Color.yellow
-                    .frame(height: 50)
-                Color.blue
-                    .frame(height: 50)
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    ForEach(0...100, id: \.self) { index in
+                        Color.green
+                            .frame(height: 50)
+                    }
+                }
             }
         }
     }
